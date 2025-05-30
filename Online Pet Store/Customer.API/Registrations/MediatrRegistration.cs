@@ -7,7 +7,9 @@ namespace Customer.API.Registrations
     {
         public void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
-            
+            var assemblies = new[] { Assembly.GetAssembly(typeof(UseCasesRegistration)) };
+
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies!));
         }
     }
 }

@@ -7,7 +7,7 @@ using OPS.UseCases.Interfaces.Customers;
 namespace OPS.Infrastructure.Implementations.Customers
 {
     [Service(ServiceLifetime.Scoped)]
-    class SearchCustomersService : ISearchCustomers
+    public class SearchCustomersService : ISearchCustomers
     {
         private readonly DataContext dbContext;
 
@@ -24,7 +24,7 @@ namespace OPS.Infrastructure.Implementations.Customers
             {
                 if (!string.IsNullOrEmpty(request.Name))
                 {
-                    customers = customers.Where(c => string.Concat(c.FirstName, c.LastName).Contains(request.Name, StringComparison.CurrentCultureIgnoreCase));
+                    customers = customers.Where(c => string.Concat(c.FirstName, c.LastName).ToLower().Contains(request.Name.ToLower()));
                 }
 
                 if (!string.IsNullOrEmpty(request.Email))

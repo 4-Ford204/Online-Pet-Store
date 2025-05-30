@@ -1,5 +1,6 @@
 using Customer.API.Registrations;
 using FastEndpoints;
+using FastEndpoints.Swagger;
 
 namespace Customer.API
 {
@@ -23,12 +24,20 @@ namespace Customer.API
         {
             if (app.Environment.IsDevelopment())
             {
-                app.MapOpenApi();
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseDefaultExceptionHandler();
             }
 
             app.UseHttpsRedirection();
 
-            app.UseFastEndpoints();
+            app.UseFastEndpoints(config =>
+            {
+                config.Endpoints.RoutePrefix = "api";
+            });
+            app.UseSwaggerGen();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace OPS.UseCases.Customers
 {
     public record SearchCustomersQuery(SearchCustomersRequest Request) : IQuery<Result<List<SearchCustomersResponse>>>;
 
-    public class SearchCustomersHandle(ISearchCustomers service) : IQueryHandler<SearchCustomersQuery, Result<List<SearchCustomersResponse>>>
+    public class SearchCustomersHandler(ISearchCustomers service) : IQueryHandler<SearchCustomersQuery, Result<List<SearchCustomersResponse>>>
     {
         public async Task<Result<List<SearchCustomersResponse>>> Handle(SearchCustomersQuery request, CancellationToken cancellationToken)
         {

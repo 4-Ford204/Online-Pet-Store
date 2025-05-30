@@ -2,13 +2,13 @@
 using MediatR;
 using OPS.UseCases.Customers;
 
-namespace Customer.API.Endpoints.Customers
+namespace Customer.API.Endpoints
 {
     public class SearchCustomersEndpoint(IMediator mediator) : Endpoint<SearchCustomersRequest, List<SearchCustomersResponse>>
     {
         public override void Configure()
         {
-            Post("/customers/search");
+            Post("/customer/search");
             AllowAnonymous();
         }
 
@@ -23,7 +23,7 @@ namespace Customer.API.Endpoints.Customers
             }
             else
             {
-                await SendErrorsAsync(400, ct);
+                await SendErrorsAsync(500, ct);
 
             }
         }
