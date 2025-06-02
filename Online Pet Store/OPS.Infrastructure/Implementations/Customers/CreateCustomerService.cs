@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using OPS.Domain.Entities;
 using OPS.Infrastructure.MSSQL;
 using OPS.UseCases.Customers;
@@ -14,6 +15,11 @@ namespace OPS.Infrastructure.Implementations.Customers
         public CreateCustomerService(DataContext dbContext)
         {
             this.dbContext = dbContext;
+        }
+
+        public async Task<bool> IsEmailExist(string email)
+        {
+            return await dbContext.Customers.AnyAsync(c => c.Email.Equals(email));
         }
 
         public async Task<CreateCustomerResponse> Execute(CreateCustomerRequest request)

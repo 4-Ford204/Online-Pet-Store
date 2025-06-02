@@ -1,10 +1,9 @@
-﻿using FastEndpoints;
-using MediatR;
+﻿using MediatR;
 using OPS.UseCases.Customers;
 
 namespace Customer.API.Endpoints
 {
-    public class SearchCustomersEndpoint(IMediator mediator) : Endpoint<SearchCustomersRequest, List<SearchCustomersResponse>>
+    public class SearchCustomersEndpoint(IMediator mediator) : BaseEndpoint<SearchCustomersRequest, List<SearchCustomersResponse>>
     {
         public override void Configure()
         {
@@ -17,15 +16,7 @@ namespace Customer.API.Endpoints
             var query = new SearchCustomersQuery(request);
             var result = await mediator.Send(query, ct);
 
-            if (result.IsSuccess)
-            {
-                await SendOkAsync(result.Value, ct);
-            }
-            else
-            {
-                await SendErrorsAsync(500, ct);
-
-            }
+            await HandleResultAsync(result, ct);
         }
     }
 }

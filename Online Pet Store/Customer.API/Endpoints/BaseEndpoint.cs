@@ -1,0 +1,52 @@
+﻿using Ardalis.Result;
+using FastEndpoints;
+using FluentValidation.Results;
+
+namespace Customer.API.Endpoints
+{
+    public abstract class BaseEndpoint<TRequest, TResponse> : Endpoint<TRequest, TResponse> where TRequest : notnull
+    {
+        protected async Task HandleResultAsync(Result<TResponse> result, CancellationToken ct)
+        {
+            if (result.IsSuccess)
+            {
+                await SendOkAsync(result.Value, ct);
+                return;
+            }
+
+            switch (result.Status)
+            {
+                case ResultStatus.Forbidden:
+                    await SendForbiddenAsync(ct);
+                    break;
+                case ResultStatus.Unauthorized:
+                    await SendUnauthorizedAsync(ct);
+                    break;
+                case ResultStatus.Invalid:
+                    var validationErrors = result.ValidationErrors
+                        .Select(error => new ValidationFailure(error.Identifier ?? string.Empty, error.ErrorMessage));
+
+                    foreach (var error in validationErrors)
+                    {
+                        AddError(error);
+                    }
+
+                    await SendErrorsAsync(400, ct);
+                    break;
+                case ResultStatus.NotFound:
+                    await SendNotFoundAsync(ct);
+                    break;
+                default:
+                    var errors = result.Errors;
+
+                    foreach (var error in errors)
+                    {
+                        AddError(string.Empty, error);
+                    }
+
+                    await SendErrorsAsync(500, ct);
+                    break;
+            }
+        }
+    }
+}

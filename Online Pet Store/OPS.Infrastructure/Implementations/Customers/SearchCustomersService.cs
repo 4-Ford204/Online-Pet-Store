@@ -43,14 +43,16 @@ namespace OPS.Infrastructure.Implementations.Customers
                 }
             }
 
-            var result = await customers.Select(c => new SearchCustomersResponse
-            {
-                FirstName = c.FirstName,
-                LastName = c.LastName,
-                Email = c.Email,
-                Phone = c.Phone,
-                Address = c.Address
-            }).ToListAsync();
+            var result = await customers
+                .Select(c => new SearchCustomersResponse
+                {
+                    FirstName = c.FirstName,
+                    LastName = c.LastName,
+                    Email = c.Email,
+                    Phone = c.Phone,
+                    Address = c.Address
+                })
+                .ToListAsync();
 
             return result;
         }

@@ -1,10 +1,9 @@
-﻿using FastEndpoints;
-using MediatR;
+﻿using MediatR;
 using OPS.UseCases.Customers;
 
 namespace Customer.API.Endpoints
 {
-    public class CreateCustomerEndpoint(IMediator mediator) : Endpoint<CreateCustomerRequest, CreateCustomerResponse>
+    public class CreateCustomerEndpoint(IMediator mediator) : BaseEndpoint<CreateCustomerRequest, CreateCustomerResponse>
     {
         public override void Configure()
         {
@@ -17,14 +16,7 @@ namespace Customer.API.Endpoints
             var command = new CreateCustomerCommand(request);
             var result = await mediator.Send(command, ct);
 
-            if (result.IsSuccess)
-            {
-                await SendOkAsync(result.Value, ct);
-            }
-            else
-            {
-                await SendErrorsAsync(500, ct);
-            }
+            await HandleResultAsync(result, ct);
         }
     }
 }

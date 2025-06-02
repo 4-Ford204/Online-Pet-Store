@@ -12,6 +12,17 @@ namespace OPS.UseCases.Customers
         {
             try
             {
+                var isEmailExist = await service.IsEmailExist(request.Request.Email);
+
+                if (isEmailExist)
+                {
+                    return Result.Invalid(new ValidationError()
+                    {
+                        Identifier = nameof(request.Request.Email),
+                        ErrorMessage = "Email already exists."
+                    });
+                }
+
                 var customer = await service.Execute(request.Request);
                 return Result.Success(customer);
             }
