@@ -21,7 +21,7 @@ namespace Customer.API.Registrations
                 };
             });
 
-            services.AddInfrastructure();
+            services.AddInfrastructure(configuration);
         }
     }
 }

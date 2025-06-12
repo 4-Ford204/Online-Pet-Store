@@ -1,6 +1,6 @@
 ﻿using Ardalis.Result;
 using Ardalis.SharedKernel;
-using OPS.UseCases.Interfaces.Customers;
+using OPS.UseCases.Interfaces.InternalServices.Customers;
 
 namespace OPS.UseCases.Customers
 {

@@ -2,9 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using OPS.Infrastructure.MSSQL;
 using OPS.UseCases.Customers;
-using OPS.UseCases.Interfaces.Customers;
+using OPS.UseCases.Interfaces.InternalServices.Customers;
 
-namespace OPS.Infrastructure.Implementations.Customers
+namespace OPS.Infrastructure.Implementations.InternalServices.Customers
 {
     [Service(ServiceLifetime.Scoped)]
     public class SearchCustomersService : ISearchCustomers

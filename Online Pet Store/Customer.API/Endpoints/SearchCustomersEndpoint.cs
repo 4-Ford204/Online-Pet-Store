@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Customer.API.Processors.PostProcessors;
+using Customer.API.Processors.PreProcessors;
+using MediatR;
 using OPS.UseCases.Customers;
 
 namespace Customer.API.Endpoints
@@ -7,8 +9,10 @@ namespace Customer.API.Endpoints
     {
         public override void Configure()
         {
-            Post("/customer/search");
+            Get("/customer/search");
             AllowAnonymous();
+            PreProcessor<CachePreProcessor<SearchCustomersRequest>>();
+            PostProcessor<CachePostProcessor<SearchCustomersRequest, List<SearchCustomersResponse>>>();
         }
 
         public override async Task HandleAsync(SearchCustomersRequest request, CancellationToken ct)

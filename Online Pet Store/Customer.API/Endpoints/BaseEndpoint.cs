@@ -23,12 +23,12 @@ namespace Customer.API.Endpoints
                     await SendUnauthorizedAsync(ct);
                     break;
                 case ResultStatus.Invalid:
-                    var validationErrors = result.ValidationErrors
+                    var validationFailures = result.ValidationErrors
                         .Select(error => new ValidationFailure(error.Identifier ?? string.Empty, error.ErrorMessage));
 
-                    foreach (var error in validationErrors)
+                    foreach (var failure in validationFailures)
                     {
-                        AddError(error);
+                        AddError(failure);
                     }
 
                     await SendErrorsAsync(400, ct);
