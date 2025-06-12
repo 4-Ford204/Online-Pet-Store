@@ -1,25 +1,34 @@
-# Online-Pet-Store
+# 🐾 Online-Pet-Store (OPS)
 
-## About OPS
+This is an online pet store built with .NET 9.0 that applies clean architecture.
 
-### Tech Stack
+---
+
+## 📌 Tech Stack
 <details>
-  <summary>.NET 9.0</summary>
-  <li>
-    API
-    <ul>
-      <li>FastEndpoints</li>
-      <li>Ardalis</li>
-      <li>MediatR</li>
-    </ul>
-  </li>
+  <summary><strong>.NET 9.0</strong></summary>
+  
+  - **API:**
+    - FastEnpoints
+    - Ardalis
+    - MediatR
+  - **Database:** Microsoft SQL Server  
+  - **Distributed Cache:** Redis
+  
 </details>
 
-## Getting Started
+## 🚀 Getting Started
 
-### Migration
-dotnet ef migrations add InitialCreate --context DataContext --output-dir MSSQL/Migrations <br>
+### 🛠️ Prerequisites
+
+- .NET 9.0 SDK
+- EF Core CLI
+- Microsoft SQL Server
+- Redis
+
+### 🗃️ Migration
+
+```
+dotnet ef migrations add InitialCreate --context DataContext --output-dir MSSQL/Migrations
 dotnet ef database update --context DataContext
-
-### Redis
-
+```
