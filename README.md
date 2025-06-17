@@ -14,6 +14,7 @@ This is an online pet store built with .NET 9.0 that applies clean architecture.
     - MediatR
   - **Database:** Microsoft SQL Server  
   - **Distributed Cache:** Redis
+  - **Message Broker:** RabbitMQ
   
 </details>
 
@@ -21,10 +22,16 @@ This is an online pet store built with .NET 9.0 that applies clean architecture.
 
 ### 🛠️ Prerequisites
 
-- .NET 9.0 SDK
-- EF Core CLI
-- Microsoft SQL Server
-- Redis
+<details>
+  <summary>Installations</summary>
+  
+  - .NET 9.0 SDK
+  - EF Core CLI
+  - Microsoft SQL Server
+  - Redis
+  - RabbitMQ
+
+</details>
 
 ### 🗃️ Migration
 
