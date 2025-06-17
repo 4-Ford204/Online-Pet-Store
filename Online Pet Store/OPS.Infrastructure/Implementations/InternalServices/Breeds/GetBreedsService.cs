@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OPS.Infrastructure.MSSQL;
-using OPS.UseCases.Breeds;
 using OPS.UseCases.Interfaces.InternalServices.Breeds;
+using OPS.UseCases.UseCases.Breeds;
 
 namespace OPS.Infrastructure.Implementations.InternalServices.Breeds
 {
