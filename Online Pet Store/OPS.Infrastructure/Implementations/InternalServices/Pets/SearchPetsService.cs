@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using OPS.Infrastructure.MSSQL;
 using OPS.UseCases.Interfaces.InternalServices.Pets;
-using OPS.UseCases.Pets;
+using OPS.UseCases.UseCases.Pets;
 
 namespace OPS.Infrastructure.Implementations.InternalServices.Pets
 {
@@ -18,7 +18,7 @@ namespace OPS.Infrastructure.Implementations.InternalServices.Pets
 
         public async Task<List<SearchPetsResponse>> Execute(SearchPetsRequest request)
         {
-            var query = dbContext.Pets.AsQueryable();
+            var query = dbContext.Pets.Where(p => p.OwnerId != null).AsQueryable();
             var pets = await query.Include(p => p.Breed).ThenInclude(b => b.Species).ToListAsync();
             var result = pets
                 .Select(p => new SearchPetsResponse

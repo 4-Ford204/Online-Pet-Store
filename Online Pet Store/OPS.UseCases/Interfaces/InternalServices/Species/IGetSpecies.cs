@@ -1,4 +1,4 @@
-﻿using OPS.UseCases.Species;
+﻿using OPS.UseCases.UseCases.Species;
 
 namespace OPS.UseCases.Interfaces.InternalServices.Species
 {

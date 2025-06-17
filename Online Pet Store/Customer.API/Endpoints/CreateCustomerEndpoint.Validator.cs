@@ -1,6 +1,6 @@
 ﻿using FastEndpoints;
 using FluentValidation;
-using OPS.UseCases.Customers;
+using OPS.UseCases.UseCases.Customers;
 
 namespace Customer.API.Endpoints
 {

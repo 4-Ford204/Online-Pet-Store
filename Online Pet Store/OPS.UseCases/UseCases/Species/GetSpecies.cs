@@ -2,7 +2,7 @@
 using Ardalis.SharedKernel;
 using OPS.UseCases.Interfaces.InternalServices.Species;
 
-namespace OPS.UseCases.Species
+namespace OPS.UseCases.UseCases.Species
 {
     public record GetSpeciesQuery : IQuery<Result<List<GetSpeciesResponse>>>;
 

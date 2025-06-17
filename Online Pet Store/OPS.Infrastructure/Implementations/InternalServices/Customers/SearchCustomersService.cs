@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OPS.Infrastructure.MSSQL;
-using OPS.UseCases.Customers;
 using OPS.UseCases.Interfaces.InternalServices.Customers;
+using OPS.UseCases.UseCases.Customers;
 
 namespace OPS.Infrastructure.Implementations.InternalServices.Customers
 {

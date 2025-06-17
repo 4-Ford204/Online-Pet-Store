@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using OPS.UseCases.Customers;
+using OPS.UseCases.UseCases.Customers;
 
 namespace Customer.API.Endpoints
 {
