@@ -3,8 +3,10 @@ using OPS.UseCases.Customers;
 
 namespace Customer.API.Endpoints
 {
-    public class CreateCustomerEndpoint(IMediator mediator) : BaseEndpoint<CreateCustomerRequest, CreateCustomerResponse>
+    public class CreateCustomerEndpoint : BaseEndpoint<CreateCustomerRequest, CreateCustomerResponse>
     {
+        public CreateCustomerEndpoint(IMediator mediator) : base(mediator) { }
+
         public override void Configure()
         {
             Post("/customer/create");
@@ -14,7 +16,7 @@ namespace Customer.API.Endpoints
         public override async Task HandleAsync(CreateCustomerRequest request, CancellationToken ct)
         {
             var command = new CreateCustomerCommand(request);
-            var result = await mediator.Send(command, ct);
+            var result = await _mediator.Send(command, ct);
 
             await HandleResultAsync(result, ct);
         }

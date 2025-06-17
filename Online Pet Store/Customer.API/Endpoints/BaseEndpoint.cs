@@ -1,11 +1,19 @@
 ﻿using Ardalis.Result;
 using FastEndpoints;
 using FluentValidation.Results;
+using MediatR;
 
 namespace Customer.API.Endpoints
 {
     public abstract class BaseEndpoint<TRequest, TResponse> : Endpoint<TRequest, TResponse> where TRequest : notnull
     {
+        protected readonly IMediator _mediator;
+
+        public BaseEndpoint(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         protected async Task HandleResultAsync(Result<TResponse> result, CancellationToken ct)
         {
             if (result.IsSuccess)
