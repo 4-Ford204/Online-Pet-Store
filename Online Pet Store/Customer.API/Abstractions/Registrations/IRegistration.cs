@@ -1,4 +1,4 @@
-﻿namespace Customer.API.Registrations
+﻿namespace Customer.API.Abstractions.Registrations
 {
     public interface IRegistration
     {

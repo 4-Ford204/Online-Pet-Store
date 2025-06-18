@@ -2,7 +2,7 @@
 using Ardalis.SharedKernel;
 using OPS.UseCases.Interfaces.InternalServices.Customers;
 
-namespace OPS.UseCases.UseCases.Customers
+namespace OPS.UseCases.Requests.Customers.Queries
 {
     public record SearchCustomersQuery(SearchCustomersRequest Request) : IQuery<Result<List<SearchCustomersResponse>>>;
 

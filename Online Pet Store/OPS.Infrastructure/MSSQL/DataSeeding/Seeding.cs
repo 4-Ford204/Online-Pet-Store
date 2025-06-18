@@ -72,7 +72,6 @@ namespace OPS.Infrastructure.MSSQL.DataSeeding
             {
                 await DbSet.AddRangeAsync(entities);
             }
-
         }
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using OPS.Infrastructure.MSSQL;
 using OPS.UseCases.Interfaces.InternalServices.Species;
-using OPS.UseCases.UseCases.Species;
+using OPS.UseCases.Requests.Species.Queries;
 
 namespace OPS.Infrastructure.Implementations.InternalServices.Species
 {

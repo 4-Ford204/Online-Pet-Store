@@ -1,7 +1,8 @@
-﻿using Customer.API.Processors.PostProcessors;
+﻿using Customer.API.Abstractions.Endpoints;
+using Customer.API.Processors.PostProcessors;
 using Customer.API.Processors.PreProcessors;
 using MediatR;
-using OPS.UseCases.UseCases.Customers;
+using OPS.UseCases.Requests.Customers.Queries;
 
 namespace Customer.API.Endpoints
 {

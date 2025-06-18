@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Customer.API.Abstractions.Registrations;
+using Microsoft.EntityFrameworkCore;
 using OPS.Infrastructure.MSSQL;
 using OPS.Infrastructure.MSSQL.DataSeeding;
 

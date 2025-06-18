@@ -16,7 +16,7 @@ namespace OPS.Infrastructure.MSSQL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
+                .HasAnnotation("ProductVersion", "9.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -99,12 +99,17 @@ namespace OPS.Infrastructure.MSSQL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OwnerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.HasKey("PetID");
 
                     b.HasIndex("BreedID");
+
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Pets", (string)null);
                 });
@@ -143,10 +148,21 @@ namespace OPS.Infrastructure.MSSQL.Migrations
                         .HasForeignKey("BreedID")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("OPS.Domain.Entities.Customer", "Owner")
+                        .WithMany("Pets")
+                        .HasForeignKey("OwnerId");
+
                     b.Navigation("Breed");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("OPS.Domain.Entities.Breed", b =>
+                {
+                    b.Navigation("Pets");
+                });
+
+            modelBuilder.Entity("OPS.Domain.Entities.Customer", b =>
                 {
                     b.Navigation("Pets");
                 });

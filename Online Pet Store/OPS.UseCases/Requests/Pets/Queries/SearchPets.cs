@@ -2,7 +2,7 @@
 using Ardalis.SharedKernel;
 using OPS.UseCases.Interfaces.InternalServices.Pets;
 
-namespace OPS.UseCases.UseCases.Pets
+namespace OPS.UseCases.Requests.Pets.Queries
 {
     public record SearchPetsQuery(SearchPetsRequest Request) : IQuery<Result<List<SearchPetsResponse>>>;
 

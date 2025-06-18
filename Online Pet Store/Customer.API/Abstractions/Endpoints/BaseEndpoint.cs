@@ -3,7 +3,7 @@ using FastEndpoints;
 using FluentValidation.Results;
 using MediatR;
 
-namespace Customer.API.Endpoints
+namespace Customer.API.Abstractions.Endpoints
 {
     public abstract class BaseEndpoint<TRequest, TResponse> : Endpoint<TRequest, TResponse> where TRequest : notnull
     {

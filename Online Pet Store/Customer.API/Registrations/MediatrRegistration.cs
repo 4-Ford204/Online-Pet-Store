@@ -1,4 +1,5 @@
-﻿using OPS.UseCases;
+﻿using Customer.API.Abstractions.Registrations;
+using OPS.UseCases;
 using System.Reflection;
 
 namespace Customer.API.Registrations

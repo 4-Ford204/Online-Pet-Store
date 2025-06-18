@@ -1,4 +1,4 @@
-﻿using OPS.UseCases.UseCases.Pets;
+﻿using OPS.UseCases.Requests.Pets.Queries;
 
 namespace OPS.UseCases.Interfaces.InternalServices.Pets
 {

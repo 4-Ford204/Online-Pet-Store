@@ -2,7 +2,7 @@
 using Ardalis.SharedKernel;
 using OPS.UseCases.Interfaces.InternalServices.Customers;
 
-namespace OPS.UseCases.UseCases.Customers
+namespace OPS.UseCases.Requests.Customers.Commands
 {
     public record CreateCustomerCommand(CreateCustomerRequest Request) : ICommand<Result<CreateCustomerResponse>>;
 

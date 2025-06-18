@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OPS.UseCases.Species;
+using OPS.UseCases.Requests.Species.Queries;
+using Pet.API.Abstractions.Controllers;
 
 namespace Pet.API.Controllers
 {

@@ -9,5 +9,7 @@
         public required string Password { get; set; }
         public string? Phone { get; set; }
         public string? Address { get; set; }
+
+        public ICollection<Pet> Pets { get; set; } = [];
     }
 }

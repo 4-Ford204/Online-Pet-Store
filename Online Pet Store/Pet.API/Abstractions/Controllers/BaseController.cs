@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Pet.API.Controllers
+namespace Pet.API.Abstractions.Controllers
 {
     public abstract class BaseController : ControllerBase
     {

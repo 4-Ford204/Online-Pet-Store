@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.Json;
+﻿using Customer.API.Abstractions.Registrations;
+using Microsoft.AspNetCore.Http.Json;
 using OPS.Infrastructure;
 
 namespace Customer.API.Registrations

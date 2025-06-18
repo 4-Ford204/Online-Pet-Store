@@ -1,4 +1,4 @@
-﻿using OPS.UseCases.UseCases.Breeds;
+﻿using OPS.UseCases.Requests.Breeds.Queries;
 
 namespace OPS.UseCases.Interfaces.InternalServices.Breeds
 {

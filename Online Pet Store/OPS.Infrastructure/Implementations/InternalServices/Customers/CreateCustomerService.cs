@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OPS.Domain.Entities;
 using OPS.Infrastructure.MSSQL;
 using OPS.UseCases.Interfaces.InternalServices.Customers;
-using OPS.UseCases.UseCases.Customers;
+using OPS.UseCases.Requests.Customers.Commands;
 
 namespace OPS.Infrastructure.Implementations.InternalServices.Customers
 {

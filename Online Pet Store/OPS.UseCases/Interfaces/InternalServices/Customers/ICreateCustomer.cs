@@ -1,4 +1,4 @@
-﻿using OPS.UseCases.UseCases.Customers;
+﻿using OPS.UseCases.Requests.Customers.Commands;
 
 namespace OPS.UseCases.Interfaces.InternalServices.Customers
 {

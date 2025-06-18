@@ -1,4 +1,4 @@
-using Customer.API.Registrations;
+using Customer.API.Abstractions.Registrations;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 

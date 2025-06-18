@@ -1,4 +1,5 @@
-﻿using FastEndpoints;
+﻿using Customer.API.Abstractions.Registrations;
+using FastEndpoints;
 using FastEndpoints.Swagger;
 
 namespace Customer.API.Registrations
