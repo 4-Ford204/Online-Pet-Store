@@ -1,8 +1,9 @@
-﻿using MediatR;
+﻿using MassTransit;
 
 namespace OPS.UseCases.Contracts.Abstractions
 {
-    public abstract record IntegrationEvent : IRequest
+    [ExcludeFromTopology]
+    public abstract record IntegrationEvent : IMessage
     {
         public Guid Id { get; init; } = Guid.NewGuid();
         public DateTimeOffset TimeStamp { get; init; } = DateTimeOffset.UtcNow;
